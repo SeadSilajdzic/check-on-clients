@@ -14,7 +14,13 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ auth()->user()->name }}, welcome back!
+
+                    <br>
+
+                    @if(auth()->user()->role_id === 1)
+                        <a href="{{ route('client.index') }}" class="btn btn-primary mt-4">Check out your panel!</a>
+                    @endif
                 </div>
             </div>
         </div>
