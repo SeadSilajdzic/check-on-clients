@@ -15,11 +15,17 @@ class ClientUserSeeder extends Seeder
     public function run()
     {
         User::create([
-            'name' => 'Client',
-            'email' => 'client@test.com',
+            'name' => 'Client One',
+            'email' => 'client@one.com',
             'password' => bcrypt('password'),
             'role_id' => 1,
+        ]);
 
+        User::create([
+            'name' => 'Client Two',
+            'email' => 'client@two.com',
+            'password' => bcrypt('password'),
+            'role_id' => 1,
         ]);
     }
 }
