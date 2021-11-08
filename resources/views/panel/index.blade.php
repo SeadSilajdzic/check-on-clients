@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('styles')
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -14,7 +18,7 @@
                                     </div>
                                 @endif
 
-                                <a href="#" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#newCustomerModal">Add new customer</a>
+                                <a href="#" class="btn btn-sm btn-primary mb-4" data-toggle="modal" data-target="#newCustomerModal">Add new customer</a>
 
                                 <!-- Modal -->
                                 <div class="modal fade" id="newCustomerModal" tabindex="-1" role="dialog" aria-labelledby="newCustomerModalLabel" aria-hidden="true">
@@ -27,7 +31,7 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <form action="{{ route('client.store') }}" method="post">
+                                                <form action="{{ route('client.store') }}" method="post" class="mb-4">
                                                     @csrf
 
                                                     <div class="row">
@@ -88,7 +92,7 @@
                                     </div>
                                 </div> <!-- end modal -->
 
-                                <table id="display-customers" class="table table-hover mt-4">
+                                <table id="customersTable" class="table table-hover">
                                     <thead>
                                         <tr>
                                             <th>Name</th>
@@ -118,4 +122,12 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('script')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha512-DUC8yqWf7ez3JD1jszxCWSVB0DMP78eOyBpMa5aJki1bIRARykviOuImIczkxlj1KhVSyS16w2FSQetkD4UU2w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+    <script>
+        let table = new DataTable('#customersTable');
+    </script>
 @endsection
